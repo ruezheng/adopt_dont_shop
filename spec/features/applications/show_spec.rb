@@ -116,4 +116,12 @@ RSpec.describe 'the applications show page' do
     expect(page).to have_content("Pickle")
     expect(page).to have_content("Pickles")
   end
+
+  it 'can search for pets and is case insensitive' do 
+     visit "/applications/#{application.id}"
+
+    fill_in :pet_name, with: "pickle"
+    click_button "Search"
+    expect(page).to have_content("Pickle")
+  end
 end
