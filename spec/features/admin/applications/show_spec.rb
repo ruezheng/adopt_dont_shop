@@ -34,7 +34,6 @@ RSpec.describe 'admin application show page' do
       expect(page).to have_button("Approve")
       expect(page).to have_button("Reject")
       click_button "Reject"
-      save_and_open_page
       expect(page).to have_content("Rejected")
       expect(page).to_not have_content("Approved")
     end
@@ -55,5 +54,25 @@ RSpec.describe 'admin application show page' do
       expect(page).to have_content('Mr. Pirate')
       expect(page).to have_button("Approve")
     end
+  end
+
+  it "can see application's status is changed to 'Approved' when all pets are accepted on an application" do
+    visit "/admin/applications/#{app_2.id}"
+    within("##{pet_app4.id}") do
+      click_button('Approve')
+
+      expect(current_path).to eq("/admin/applications/#{app_2.id}")
+    end
+    expect(page).to have_content("Application Status: Approved")
+  end
+
+  it "can see application's status is changed to 'Rejected' when any of the pets are rejected on an application" do
+    visit "/admin/applications/#{app_2.id}"
+    within("##{pet_app4.id}") do
+      click_button('Reject')
+
+      expect(current_path).to eq("/admin/applications/#{app_2.id}")
+    end
+    expect(page).to have_content("Application Status: Rejected")
   end
 end
