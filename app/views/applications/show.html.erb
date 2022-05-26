@@ -33,11 +33,10 @@
   <% end %>
 <% end %>
 
-
 <% if @pet_search != nil %>
   <% @pet_search.each do |pet| %>
     <div id="<%= pet.id %>">
-     <%= pet.name %>
+     <strong><%= pet.name %></strong>
      <%= button_to 'Adopt this Pet', '/pet_applications/new', method: :post, params: {:pet_id => pet.id, :application_id => @application.id} %>
     </div>
   <% end %>
