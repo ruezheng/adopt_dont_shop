@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Adopts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adopts.each do |adopt| %>
+      <tr>
+        <td><%= adopt.title %></td>
+        <td><%= adopt.body %></td>
+        <td><%= link_to 'Show', adopt %></td>
+        <td><%= link_to 'Edit', edit_adopt_path(adopt) %></td>
+        <td><%= link_to 'Destroy', adopt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Adopt', new_adopt_path %>

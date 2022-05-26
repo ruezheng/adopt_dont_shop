@@ -33,6 +33,21 @@ RSpec.describe Pet, type: :model do
         expect(Pet.adoptable).to eq([@pet_1, @pet_2])
       end
     end
+
+    # Application Approval makes Pets not adoptable
+    #
+    # As a visitor
+    # When I visit an admin application show page
+    # And I approve all pets on the application
+    # And when I visit the show pages for those pets
+    # Then I see that those pets are no longer "adoptable"
+
+    describe '#not_adoptable' do
+      it "Application Approval makes Pets not adoptable" do
+
+        expect(pet_1.not_addoptable).to eq()
+      end
+    end
   end
 
   describe 'instance methods' do
