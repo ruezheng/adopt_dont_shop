@@ -19,13 +19,13 @@ RSpec.describe Pet, type: :model do
   let!(:pet_3) { shelter_1.pets.create(name: 'Ann', breed: 'ragdoll', age: 3, adoptable: false) }
 
   describe 'class methods' do
-    describe '.search' do
+    describe '::search' do
       it 'returns partial matches' do
         expect(Pet.search("Claw")).to eq([pet_2])
       end
     end
 
-    describe '.adoptable' do
+    describe '::adoptable' do
       it 'returns adoptable pets' do
         expect(Pet.adoptable).to eq([pet_1, pet_2])
       end
