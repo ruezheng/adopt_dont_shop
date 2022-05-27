@@ -41,7 +41,6 @@ RSpec.describe 'the applications show page' do
     within("##{pet_1.id}") do
       click_button "Adopt this Pet"
     end
-
     expect(current_path).to eq("/applications/#{application.id}")
     expect(page).to have_content(pet_1.name)
     expect(pet_1.name).to appear_before("Search")

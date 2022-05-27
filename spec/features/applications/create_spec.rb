@@ -11,7 +11,6 @@ RSpec.describe 'New Application page' do
     fill_in 'city', with: 'Boise'
     fill_in 'state', with: 'ID'
     fill_in 'zip_code', with: '83201'
-
     click_button "Submit"
 
     application = Application.last
@@ -36,7 +35,6 @@ RSpec.describe 'New Application page' do
     fill_in 'street_address', with: '123 cherry ln'
     fill_in 'city', with: 'Boise'
     fill_in 'state', with: 'ID'
-
     click_button 'Submit'
 
     expect(page).to have_content("Error: All fields must be completed to submit!")
