@@ -13,11 +13,10 @@
       <%= button_to 'Reject', "/admin/applications/#{@application.id}", method: :patch, params: { approved: false, pet_id: pet_app.pet_id } %><br>
     <% end %>
   </div>
-  <% if @application.approved_application == "Approved" %>
-    <p>Application Status: Approved</p>
-  <% end %>
 
-  <% if @application.rejected_application == "Rejected" %>
+  <% if @application.approved! == "Approved" %>
+    <p>Application Status: Approved</p>
+  <% elsif @application.approved! == "Rejected" %>
     <p>Application Status: Rejected</p>
   <% end %>
 <% end %>
