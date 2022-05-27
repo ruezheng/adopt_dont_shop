@@ -24,8 +24,7 @@ RSpec.describe Shelter, type: :model do
 
   let!(:app_1) { pet_1.applications.create(name: "Bob", street_address: "234 York st", city: "Denver", state: "CO", zip_code: "83201", application_status: "Pending") }
   let!(:app_2) { pet_2.applications.create(name: "Violet!", street_address: "678 Main st", city: "Denver", state: "CO", zip_code: "83302", application_status: "In Progress") }
-  let!(:app_3) { pet_3.applications.create(name: "Hannah", street_address: "MLK blvd", city: "Denver", state: "CO", zip_code: "83402", application_status: "Pending")   }
-
+  let!(:app_3) { pet_3.applications.create(name: "Hannah", street_address: "MLK blvd", city: "Denver", state: "CO", zip_code: "83402", application_status: "Pending") }
 
   describe 'class methods' do
     describe '::search' do
