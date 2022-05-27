@@ -12,7 +12,7 @@ class Application < ApplicationRecord
   attribute :description, :string, default: ' '
   attribute :application_status, :string, default: 'In Progress'
 
-  def approved! # <<<<<< does this need to be ! or change to a boolean ? <<<<<
+  def approved! # TODO: does this need to be ! or change to a boolean?
     if pet_applications.count == pet_applications.where(approved: true).count
       application_status = "Approved"
     elsif pet_applications.where(approved: false).count >= 1
