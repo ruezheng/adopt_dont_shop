@@ -1,7 +1,7 @@
 
 class ApplicationsController < ApplicationController
 
-  def show
+  def show # TODO: how do I remove Pet.search from ApplicationsController to make it more RESTful?
     @application = Application.find(params[:id])
     @pet_search = Pet.search(params[:pet_name]) if params[:pet_name].present?
     if params[:description].present?
@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
   def new
   end
 
- def create
+  def create
     @application = Application.create(application_params)
     if @application.save
       redirect_to "/applications/#{@application.id}"

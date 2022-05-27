@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'New Application page' do
   let!(:application) { Application.create!(name: 'Sam', street_address: '123 Cherry ln', city: 'Boise', state: 'ID', zip_code: '83201')}
 
-  it 'has form to create new application' do
+  it "has form to create new application" do
     visit 'applications/new'
 
     fill_in 'name', with: 'Sam'
@@ -13,8 +13,8 @@ RSpec.describe 'New Application page' do
     fill_in 'zip_code', with: '83201'
     click_button "Submit"
 
-    # expect(current_path).to eq("/applications/#{application.id}")
     application = Application.last
+
     expect(application.name).to eq("Sam")
     expect(application.street_address).to eq('123 Cherry ln')
     expect(application.city).to eq('Boise')
@@ -28,14 +28,13 @@ RSpec.describe 'New Application page' do
     expect(page).to have_content(83201)
   end
 
-  it 're-renders the new form if all information isnt given' do
+  it "re-renders the new form if all information isnt given" do
     visit '/applications/new'
-    
+
     fill_in 'name', with: 'Sam'
     fill_in 'street_address', with: '123 cherry ln'
     fill_in 'city', with: 'Boise'
     fill_in 'state', with: 'ID'
-    
     click_button 'Submit'
 
     expect(page).to have_content("Error: All fields must be completed to submit!")

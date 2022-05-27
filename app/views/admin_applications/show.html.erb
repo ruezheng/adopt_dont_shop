@@ -1,6 +1,6 @@
 <h1> <%= @application.name %> </h1>
 
-<h3>Pets Applied for </h3>
+<h3>Pets Applied for: </h3>
 <% @application.pet_applications.each do |pet_app| %>
   <div id="<%= pet_app.id %>">
     <strong><%= pet_app.pet_name %></strong>
@@ -13,11 +13,10 @@
       <%= button_to 'Reject', "/admin/applications/#{@application.id}", method: :patch, params: { approved: false, pet_id: pet_app.pet_id } %><br>
     <% end %>
   </div>
-  <% if @application.approved_application == "Approved" %>
-    <p>Application Status: Approved</p>
-  <% end %>
 
-  <% if @application.rejected_application == "Rejected" %>
+  <% if @application.approved! == "Approved" %>
+    <p>Application Status: Approved</p>
+  <% elsif @application.approved! == "Rejected" %>
     <p>Application Status: Rejected</p>
   <% end %>
 <% end %>

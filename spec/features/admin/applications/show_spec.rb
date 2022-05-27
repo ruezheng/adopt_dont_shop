@@ -12,13 +12,15 @@ RSpec.describe 'admin application show page' do
   let!(:pet_app3) { PetApplication.create!(application_id: app_1.id, pet_id: pet_3.id) }
   let!(:pet_app4) { PetApplication.create!(application_id: app_2.id, pet_id: pet_1.id) }
 
-  it 'can approve an application for a pet' do
+  it "can approve an application for a pet" do
     visit "/admin/applications/#{app_1.id}"
 
     within("##{pet_app1.id}") do
       expect(page).to have_button("Approve")
       expect(page).to have_button("Reject")
+
       click_button "Approve"
+
       expect(current_path).to eq("/admin/applications/#{app_1.id}")
       expect(page).to have_no_button("Approve")
       expect(page).to have_content("Approved")
@@ -33,23 +35,26 @@ RSpec.describe 'admin application show page' do
     within("##{pet_app3.id}") do
       expect(page).to have_button("Approve")
       expect(page).to have_button("Reject")
+
       click_button "Reject"
+
       expect(page).to have_content("Rejected")
       expect(page).to_not have_content("Approved")
     end
   end
 
-  it 'Approved/Rejected Pets on one Application do not affect other Applications' do
-
+  it "Approved/Rejected Pets on one Application do not affect other Applications" do
     visit "/admin/applications/#{app_1.id}"
+
     within("##{pet_app1.id}") do
-    expect(page).to have_content('Mr. Pirate')
+      expect(page).to have_content('Mr. Pirate')
 
       click_button "Approve"
+
       expect(page).to have_content("Approved")
     end
-
     visit "/admin/applications/#{app_2.id}"
+
     within("##{pet_app4.id}") do
       expect(page).to have_content('Mr. Pirate')
       expect(page).to have_button("Approve")
@@ -58,6 +63,7 @@ RSpec.describe 'admin application show page' do
 
   it "can see application's status is changed to 'Approved' when all pets are accepted on an application" do
     visit "/admin/applications/#{app_2.id}"
+
     within("##{pet_app4.id}") do
       click_button('Approve')
 
@@ -68,6 +74,7 @@ RSpec.describe 'admin application show page' do
 
   it "can see application's status is changed to 'Rejected' when any of the pets are rejected on an application" do
     visit "/admin/applications/#{app_2.id}"
+
     within("##{pet_app4.id}") do
       click_button('Reject')
 
