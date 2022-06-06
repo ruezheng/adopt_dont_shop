@@ -37,7 +37,7 @@ During the evaluation, you will present your user story:
 * Show the test(s) for the user story
 * Show all code that implements the user story
 
-### Database Diagram
+## Database Diagram
 ![Screen Shot 2022-05-19 at 8 22 27 PM](https://user-images.githubusercontent.com/99001315/169436024-69a2f6d6-353e-43df-b3dc-39e91622bc81.png)
 
 # User Stories
