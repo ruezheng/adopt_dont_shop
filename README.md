@@ -1,8 +1,5 @@
 # Adopt, Don't Shop
 
-### Database Design
-![Screen Shot 2022-05-19 at 8 22 27 PM](https://user-images.githubusercontent.com/99001315/169436024-69a2f6d6-353e-43df-b3dc-39e91622bc81.png)
-
 ## Learning Goals
 
 In this project, students will build upon the code in this repo to create a Pet Adoption Platform. Users will be able to apply to adopt pets, and Admins will be able to approve or reject applications and see statistics for the Shelters, Pets, and Applications in the system.
@@ -39,6 +36,9 @@ During the evaluation, you will present your user story:
 * Demonstrate the user story on Heroku (or localhost if the feature is not functional in Production)
 * Show the test(s) for the user story
 * Show all code that implements the user story
+
+### Database Diagram
+![Screen Shot 2022-05-19 at 8 22 27 PM](https://user-images.githubusercontent.com/99001315/169436024-69a2f6d6-353e-43df-b3dc-39e91622bc81.png)
 
 # User Stories
 
